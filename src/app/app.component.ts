@@ -1,12 +1,31 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { ProductDashboardSignals1 } from './components/product-dashboard-signals1/product-dashboard-signals1';
+import { ProductDashboardSignals2 } from './components/product-dashboard-signals2/product-dashboard-signals2';
+import { Router, RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatTabsModule } from '@angular/material/tabs';
+import { NgIf, NgSwitch } from '@angular/common';
+import { CounterComponent } from './components/Counter-component/counter.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,
+  imports: [ProductDashboardSignals2, ProductDashboardSignals1, RouterModule, MatTabsModule, MatButtonModule, NgIf, NgSwitch, CounterComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'signals';
+  tabIndex = 0;
+  search = signal('');
+  constructor(private router: Router) {}
+
+  onTabChange(index: number) {
+    this.tabIndex = index;
+    const paths = ['counter', 'dashboard1', 'dashboard2'];
+    this.router.navigate([paths[index]]);
+  }
+
+  updateSearchTerm(value: string) {
+    this.search.set(value);
+  }
+
 }

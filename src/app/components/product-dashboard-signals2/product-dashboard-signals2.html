@@ -1,0 +1,18 @@
+<h2>Products</h2>
+
+<!-- Categories -->
+<div>
+  <button (click)="selectCategory(null)">All</button>
+  <button (click)="selectCategory('Laptops')">Laptops</button>
+  <button (click)="selectCategory('Phones')">Phones</button>
+  <button (click)="selectCategory('Tablets')">Tablets</button>
+</div>
+
+<p>Selected Category: {{ selectedCategory() || 'All' }}</p>
+<p>Count: {{ productCount() }}</p>
+
+<ul>
+  <li *ngFor="let p of filteredProducts()">
+    {{ p.name }} ({{ p.category }})
+  </li>
+</ul>

@@ -1,0 +1,32 @@
+<h2 class="dashboard-title">Product Dashboard</h2>
+
+<!-- You can REMOVE this if search is controlled by the parent -->
+<!-- <div class="search-bar">
+  <input
+    [formControl]="searchControl"
+    placeholder="🔍 Search products..."
+    class="search-input"
+  />
+</div> -->
+
+<!-- Category Filter -->
+<div class="category-filter">
+  <button (click)="selectCategory(null)">All</button>
+  <button (click)="selectCategory('Laptops')">Laptops</button>
+  <button (click)="selectCategory('Tablets')">Tablets</button>
+  <button (click)="selectCategory('Phones')">Phones</button>
+</div>
+
+<!-- Product List -->
+<ul class="product-list">
+  <li *ngFor="let product of filteredProducts()" class="product-item">
+    {{ product.name }} <span class="category-label">({{ product.category }})</span>
+  </li>
+</ul>
+
+<div>
+  <p>Selected count is {{ selectedCount() }}</p>
+</div>
+<div>
+  <p>Selected category is {{ selectedCategory() || 'ALL' }}</p>
+</div>

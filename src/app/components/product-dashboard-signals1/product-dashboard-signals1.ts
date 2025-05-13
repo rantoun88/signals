@@ -5,10 +5,12 @@ import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
+import { MatIconModule } from '@angular/material/icon';
+
 @Component({
   selector: 'product-dashboard-signals1',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, MatIconModule],
   templateUrl: './product-dashboard-signals1.html',
   styleUrl: './product-dashboard-signals1.scss'
 })
@@ -18,6 +20,10 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
 
   // -----> signal input
   searchTerm = input('') ;
+
+  // for model clarification
+  selected = input.required<number>();
+  selectedChange = output<number>()
 
   // ----> signal output
   readonly productClicked = output<Product>();

@@ -10,8 +10,11 @@
 
 <!-- Product List -->
 <ul class="product-list">
-  <li *ngFor="let product of filteredProducts()" class="product-item" (click)="onProductClick(product)">
+  <li *ngFor="let product of filteredProducts()" class="product-item" (click)="onProductClick(product)" [ngClass]="{'highlight-violet': selected() === product.id}">
+
+
     {{ product.name }} <span class="category-label">({{ product.category }})</span>
+    <mat-icon (click)="selectedChange.emit(product.id)">shopping_cart</mat-icon>
   </li>
 </ul>
 

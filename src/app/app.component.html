@@ -6,12 +6,18 @@
     (input)="updateSearchTerm($any($event.target).value)"
     placeholder="🔍 Search products..."
   />
+  <p>selectedProduct: {{ selectedProduct }}</p>
 </div>
 
 <!-- Material Tabs -->
 <mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
   <mat-tab label="Counter"><counter-component></counter-component></mat-tab>
-  <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()" (productClicked)="handleProductClickInApp($event)"></product-dashboard-signals1></mat-tab>
+  <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()"
+                                                       (productClicked)="handleProductClickInApp($event)"
+                                                       [(selected)]="selectedProduct">
+<!--    (selectedChange)="selectedProduct = $event"-->
+
+  </product-dashboard-signals1></mat-tab>
   <mat-tab label="rxjs + signals"><product-dashboard-signals2 [searchTerm]="search()"></product-dashboard-signals2></mat-tab>
 </mat-tab-group>
 

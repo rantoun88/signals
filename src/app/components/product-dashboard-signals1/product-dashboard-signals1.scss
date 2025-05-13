@@ -64,3 +64,20 @@
     }
   }
 }
+
+.highlight-violet {
+  background-color: blueviolet;
+  color:white
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .basket-icon {
+    color: #555;
+  }
+}
+
+

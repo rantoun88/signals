@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, input, InputSignal, signal } from '@angular/core';
 import { ProductDashboardSignals1 } from './components/product-dashboard-signals1/product-dashboard-signals1';
 import { ProductDashboardSignals2 } from './components/product-dashboard-signals2/product-dashboard-signals2';
 import { Router, RouterModule } from '@angular/router';
@@ -17,6 +17,8 @@ import { Product } from '../app/models/product.model';
 export class AppComponent {
   tabIndex = 0;
   search = signal('');
+
+  selectedProduct = 1;
   constructor(private router: Router) {}
 
   onTabChange(index: number) {

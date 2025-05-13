@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, computed, effect, input, OnDestroy } from '@angular/core';
+import { Component, OnInit, inject, signal, computed, effect, input, OnDestroy, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
@@ -18,6 +18,10 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
 
   // -----> signal input
   searchTerm = input('') ;
+
+  // ----> signal output
+  readonly productClicked = output<Product>();
+
 
   selectedCategory = signal<string | null>(null);
   allProducts = signal<Product[]>([]);
@@ -56,5 +60,9 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
     if (this.loadSubscription) {
       this.loadSubscription.unsubscribe();
     }
+  }
+
+  onProductClick(product: Product) {
+    this.productClicked.emit(product);
   }
 }

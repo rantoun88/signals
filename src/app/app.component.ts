@@ -10,7 +10,7 @@ import { CounterComponent } from './components/Counter-component/counter.compone
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductDashboardSignals2, ProductDashboardSignals1, RouterModule, MatTabsModule, MatButtonModule, NgIf, NgSwitch, CounterComponent],
+  imports: [ProductDashboardSignals2, ProductDashboardSignals1, RouterModule, MatTabsModule, MatButtonModule, NgIf, CounterComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -20,7 +20,7 @@ export class AppComponent {
 
   onTabChange(index: number) {
     this.tabIndex = index;
-    const paths = ['counter', 'dashboard1', 'dashboard2'];
+    const paths = ['counter', 'signals', 'rxjs-interop'];
     this.router.navigate([paths[index]]);
   }
 

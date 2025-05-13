@@ -10,9 +10,9 @@
 
 <!-- Material Tabs -->
 <mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
-  <mat-tab label="Counter"></mat-tab>
-  <mat-tab label="Dashboard 1"><product-dashboard-signals1 [searchTerm]="search()"></product-dashboard-signals1></mat-tab>
-  <mat-tab label="Dashboard 2"><product-dashboard-signals2 [searchTerm]="search()"></product-dashboard-signals2></mat-tab>
+  <mat-tab label="Counter"><counter-component></counter-component></mat-tab>
+  <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()"></product-dashboard-signals1></mat-tab>
+  <mat-tab label="rxjs + signals"><product-dashboard-signals2 [searchTerm]="search()"></product-dashboard-signals2></mat-tab>
 </mat-tab-group>
 
 <!--<ng-container [ngSwitch]="tabIndex">-->

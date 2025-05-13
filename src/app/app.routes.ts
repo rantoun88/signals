@@ -5,7 +5,7 @@ import { CounterComponent } from './components/Counter-component/counter.compone
 
 export const routes: Routes = [
   { path: 'counter', component: CounterComponent },
-  { path: 'dashboard1', component: ProductDashboardSignals1 },
-  { path: 'dashboard2', component: ProductDashboardSignals2 },
+  { path: 'signals', component: ProductDashboardSignals1 },
+  { path: 'rxjs-interop', component: ProductDashboardSignals2 },
   { path: '', redirectTo: 'counter', pathMatch: 'full' }
 ];

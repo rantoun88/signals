@@ -3,12 +3,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'counter-component',
+  selector: 'basic-component',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './counter.component.html',
-  styleUrl: './counter.component.scss'
+  templateUrl: './basic.component.html',
+  styleUrl: './basic.component.scss'
 })
-export class CounterComponent {
+export class BasicComponent {
 
 }

@@ -11,7 +11,7 @@
 
 <!-- Material Tabs -->
 <mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
-  <mat-tab label="Counter"><counter-component></counter-component></mat-tab>
+  <mat-tab label="Basics"><basic-component/></mat-tab>
   <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()"
                                                        (productClicked)="handleProductClickInApp($event)"
                                                        [(selected)]="selectedProduct">

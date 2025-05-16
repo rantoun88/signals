@@ -5,13 +5,13 @@ import { Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { NgIf } from '@angular/common';
-import { CounterComponent } from './components/Counter-component/counter.component';
 import { Product } from '../app/models/product.model';
+import {BasicComponent} from './components/BasicComponent/basic.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ProductDashboardSignals2, ProductDashboardSignals1, RouterModule, MatTabsModule, MatButtonModule, NgIf, CounterComponent],
+  imports: [ProductDashboardSignals2, ProductDashboardSignals1, RouterModule, MatTabsModule, MatButtonModule, NgIf, BasicComponent],
   templateUrl: './app.component.html',
 })
 export class AppComponent {
@@ -26,7 +26,7 @@ export class AppComponent {
 
   onTabChange(index: number) {
     this.tabIndex = index;
-    const paths = ['counter', 'signals', 'rxjs-interop'];
+    const paths = ['basics', 'signals', 'rxjs-interop'];
     this.router.navigate([paths[index]]);
   }
 
@@ -35,6 +35,6 @@ export class AppComponent {
   }
 
   handleProductClickInApp(product: Product) {
-    console.log(`Product ${product.name} clicked`)
+    //console.log(`Product ${product.name} clicked`)
   }
 }

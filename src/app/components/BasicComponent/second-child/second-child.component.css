@@ -1,0 +1,34 @@
+:host {
+  width: 200px;
+  display: inline-flex;
+  flex-direction: column;
+
+  border: 2px dashed darkgray;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+.second{
+  align-self: center;
+}
+p {
+  margin: 1rem;
+
+  text-align: center;
+
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+button {
+  background: none;
+  border: 2px solid darkgray;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+
+  cursor: pointer;
+
+  &:hover {
+    background: lightgray;
+  }
+}

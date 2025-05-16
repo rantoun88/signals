@@ -29,7 +29,7 @@ export class ProductDashboardSignals2 {
   constructor(private snackBar: MatSnackBar) {
     effect(() => {
       const products = this.filteredProducts();
-      console.log(`[Effect] Found ${this.productCount()} product(s)`);
+     // console.log(`[Effect] Found ${this.productCount()} product(s)`);
       this.snackBar.open(`Found ${products.length} product`, 'Close', {
         duration: 2000,
       });

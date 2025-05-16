@@ -47,7 +47,7 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
   constructor(private snackBar: MatSnackBar) {
     effect(() => {
       const products = this.filteredProducts();
-      console.log(`Filteredlist updated: ${products.length} product(s)`);
+     // console.log(`Filteredlist updated: ${products.length} product(s)`);
       this.snackBar.open(`Found ${products.length} product`, 'Close', {
         duration: 2000,
       });

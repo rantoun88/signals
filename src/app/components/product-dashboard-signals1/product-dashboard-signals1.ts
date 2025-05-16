@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, computed, effect, input, OnDestroy, output } from '@angular/core';
+import { Component, OnInit, inject, signal, computed, effect, input, OnDestroy, output, model } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
@@ -22,8 +22,7 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
   searchTerm = input('') ;
 
   // for model clarification
-  selected = input.required<number>();
-  selectedChange = output<number>()
+  selected = model.required<number>();
 
   // ----> signal output
   readonly productClicked = output<Product>();

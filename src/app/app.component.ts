@@ -18,7 +18,10 @@ export class AppComponent {
   tabIndex = 0;
   search = signal('');
 
-  selectedProduct = 1;
+  selectedProductId = signal(1);
+  // as signal if I want a side effect when selectedProductId is changed (like defining computed signal or effect)
+
+
   constructor(private router: Router) {}
 
   onTabChange(index: number) {

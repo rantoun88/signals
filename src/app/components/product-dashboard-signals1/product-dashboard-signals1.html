@@ -14,7 +14,7 @@
 
 
     {{ product.name }} <span class="category-label">({{ product.category }})</span>
-    <mat-icon (click)="selectedChange.emit(product.id)">shopping_cart</mat-icon>
+    <mat-icon (click)="selected.set(product.id)">shopping_cart</mat-icon>
   </li>
 </ul>
 

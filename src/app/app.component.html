@@ -6,7 +6,7 @@
     (input)="updateSearchTerm($any($event.target).value)"
     placeholder="🔍 Search products..."
   />
-  <p>selectedProduct: {{ selectedProduct }}</p>
+  <p>selectedProduct: {{ selectedProductId() }}</p>
 </div>
 
 <!-- Material Tabs -->
@@ -14,8 +14,7 @@
   <mat-tab label="Basics"><basic-component/></mat-tab>
   <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()"
                                                        (productClicked)="handleProductClickInApp($event)"
-                                                       [(selected)]="selectedProduct">
-<!--    (selectedChange)="selectedProduct = $event"-->
+                                                       [(selected)]="selectedProductId">
 
   </product-dashboard-signals1></mat-tab>
   <mat-tab label="rxjs + signals"><product-dashboard-signals2 [searchTerm]="search()"></product-dashboard-signals2></mat-tab>

@@ -23,7 +23,7 @@ export class AppComponent {
 
   onTabChange(index: number) {
     this.tabIndex = index;
-    const paths = ['counter', 'signals', 'rxjs-interop'];
+    const paths = ['basics', 'signals', 'rxjs-interop'];
     this.router.navigate([paths[index]]);
   }
 
@@ -32,6 +32,6 @@ export class AppComponent {
   }
 
   handleProductClickInApp(product: Product) {
-    console.log(`Product ${product.name} clicked`)
+    //console.log(`Product ${product.name} clicked`)
   }
 }

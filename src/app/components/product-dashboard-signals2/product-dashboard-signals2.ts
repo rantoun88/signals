@@ -3,7 +3,7 @@ import {
   switchMap,
   map,
 } from 'rxjs/operators';
-import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ProductService } from '../../services/product.service';
 import { Product } from '../../models/product.model';
 import { CommonModule } from '@angular/common';
@@ -25,16 +25,6 @@ export class ProductDashboardSignals2 {
   searchTerm = input('');
 
   selectedCategory = signal<string | null>(null);
-
-  constructor(private snackBar: MatSnackBar) {
-    effect(() => {
-      const products = this.filteredProducts();
-     // console.log(`[Effect] Found ${this.productCount()} product(s)`);
-      this.snackBar.open(`Found ${products.length} product`, 'Close', {
-        duration: 2000,
-      });
-    });
-  }
 
   // Observable: search input stream
   private searchTerm$ = toObservable(this.searchTerm);
@@ -58,6 +48,13 @@ export class ProductDashboardSignals2 {
 
   // Count (computed from filtered signal)
   productCount = computed(() => this.filteredProducts().length);
+  constructor(private snackBar: MatSnackBar) {
+    effect(() => {
+      this.snackBar.open(`Found ${this.productCount()} product`, 'Close', {
+        duration: 4000,
+      });
+    });
+  }
 
   selectCategory(category: string | null) {
     this.selectedCategory.set(category);

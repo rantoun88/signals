@@ -3,17 +3,16 @@
   <input
     type="text"
     [value]="search()"
-    (input)="updateSearchTerm($any($event.target).value)"
+    (input)="updateSearchTerm($event)"
     placeholder="🔍 Search products..."
   />
-  <p>selectedProduct: {{ selectedProductId() }}</p>
+  <p *ngIf="tabIndex === 1">selectedProduct: {{ selectedProductId() }}</p>
 </div>
 
 <!-- Material Tabs -->
 <mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
   <mat-tab label="Basics"><basic-component/></mat-tab>
   <mat-tab label="signals"><product-dashboard-signals1 [searchTerm]="search()"
-                                                       (productClicked)="handleProductClickInApp($event)"
                                                        [(selected)]="selectedProductId">
 
   </product-dashboard-signals1></mat-tab>

@@ -17,20 +17,16 @@ import { MatIconModule } from '@angular/material/icon';
 export class ProductDashboardSignals1 implements OnInit, OnDestroy {
   private productService = inject(ProductService);
   private loadSubscription = Subscription.EMPTY ;
+  allProducts = signal<Product[]>([]);
 
   // -----> signal input
-  searchTerm = input('') ;
+  readonly searchTerm = input('') ;
 
   // for model clarification
   selected = model.required<number>();
 
-  // ----> signal output
-  readonly productClicked = output<Product>();
-
 
   selectedCategory = signal<string | null>(null);
-  allProducts = signal<Product[]>([]);
-
   filteredProducts = computed(() => {
     const category = this.selectedCategory();
     const term = this.searchTerm().toLowerCase() || '';
@@ -41,14 +37,12 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
     );
   });
 
-  selectedCount = computed(() => this.filteredProducts().length);
+  totalCount = computed(() => this.filteredProducts().length);
 
   constructor(private snackBar: MatSnackBar) {
     effect(() => {
-      const products = this.filteredProducts();
-     // console.log(`Filteredlist updated: ${products.length} product(s)`);
-      this.snackBar.open(`Found ${products.length} product`, 'Close', {
-        duration: 2000,
+      this.snackBar.open(`Found ${this.totalCount()} product`, 'Close', {
+        duration: 4000,
       });
     });
   }
@@ -57,6 +51,7 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
     this.loadSubscription = this.productService.getAll().subscribe(this.allProducts.set);
   }
 
+  // selectCategory with null value displays all the products
   selectCategory(category: string | null) {
     this.selectedCategory.set(category);
   }
@@ -65,9 +60,5 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
     if (this.loadSubscription) {
       this.loadSubscription.unsubscribe();
     }
-  }
-
-  onProductClick(product: Product) {
-    this.productClicked.emit(product);
   }
 }

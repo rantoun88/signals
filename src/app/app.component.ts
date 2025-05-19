@@ -18,7 +18,7 @@ export class AppComponent {
   tabIndex = 0;
   search = signal('');
 
-  selectedProductId = signal(1);
+  selectedProductId = signal(5);
   // as signal if I want a side effect when selectedProductId is changed (like defining computed signal or effect)
 
 
@@ -30,11 +30,8 @@ export class AppComponent {
     this.router.navigate([paths[index]]);
   }
 
-  updateSearchTerm(value: string) {
-    this.search.set(value);
-  }
-
-  handleProductClickInApp(product: Product) {
-    //console.log(`Product ${product.name} clicked`)
+  updateSearchTerm(event: Event) {
+    const searchValue = (event.target as HTMLInputElement).value
+    this.search.set(searchValue);
   }
 }

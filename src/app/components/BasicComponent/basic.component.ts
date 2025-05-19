@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ElementRef, OnInit, Renderer2, signal, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import {FirstChildComponent} from './first-child/first-child.component';
@@ -14,7 +14,7 @@ import {SecondChildComponent} from './second-child/second-child.component';
 })
 export class BasicComponent{
    color () : string {
-     console.log('Basic Component')
+     console.log('Basic Component rerendered')
      const randomNumber = Math.floor(Math.random() * 20);
      const colors: string[] = [
        '#FF0000',

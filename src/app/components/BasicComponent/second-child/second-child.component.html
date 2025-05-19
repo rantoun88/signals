@@ -1,4 +1,9 @@
-<h2 class="second">Second</h2>
+<h1 class="second">Second</h1>
 
-<p [style.color]="color()">{{ time() |  date:'h:mm:ss'  }}</p>
-<button (click)="clickMe()">Increase</button>
+<!--<p [style.color]="color()">{{ timeAsSignal() |  date:'h:mm:ss'  }}</p>-->
+
+<p [style.color]="color()">{{ time |  date:'h:mm:ss'  }}</p>
+
+<!--<p [style.color]="color()">{{( time$ | async ) | date:'h:mm:ss'  }}</p>-->
+
+<button (click)="clickMe()">Click</button>

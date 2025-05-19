@@ -1,28 +1,38 @@
-import {ChangeDetectionStrategy, Component, signal} from '@angular/core';
-import {interval} from 'rxjs';
-import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {DatePipe} from '@angular/common';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit, signal} from '@angular/core';
+import {interval, Observable, take} from 'rxjs';
+import {AsyncPipe, DatePipe} from '@angular/common';
+import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-basic-second-child',
   imports: [
-    DatePipe
+    DatePipe,
+    AsyncPipe,
+
   ],
   templateUrl: './second-child.component.html',
   styleUrl: './second-child.component.css',
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class SecondChildComponent {
-  // using
-  time = signal<Date>( new Date());
-  constructor() {
-    // interval(1000).pipe(takeUntilDestroyed()).subscribe(()=>
-    // {
-    //  this.time.set(new Date());
-    // })
+export class SecondChildComponent implements OnInit{
+  // using plane member variables
+  time = new Date();
+  // using Observable with Sync Pipe in html
+  time$:Observable<Date> =  interval(1000).pipe(take(100),map(()=> new Date()));
+  // using Signal
+  constructor( private  changeDR: ChangeDetectorRef) {
+
   }
+
+  ngOnInit(): void {
+   this.time$.subscribe((date:Date)=>
+    {
+      this.time= date;
+
+    })
+    }
   color () : string {
-    console.log('Second Component')
+    console.log('Second Component rerendered')
     const randomNumber = Math.floor(Math.random() * 20);
     const colors: string[] = [
       '#FF0000',

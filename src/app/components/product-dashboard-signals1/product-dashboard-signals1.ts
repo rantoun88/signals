@@ -17,16 +17,13 @@ import { MatIconModule } from '@angular/material/icon';
 export class ProductDashboardSignals1 implements OnInit, OnDestroy {
   private productService = inject(ProductService);
   private loadSubscription = Subscription.EMPTY ;
-  allProducts = signal<Product[]>([]);
+  private allProducts = signal<Product[]>([]);
 
   // -----> signal input
   readonly searchTerm = input('') ;
 
-  // for model clarification
-  selected = model.required<number>();
-
-
   selectedCategory = signal<string | null>(null);
+
   filteredProducts = computed(() => {
     const category = this.selectedCategory();
     const term = this.searchTerm().toLowerCase() || '';
@@ -36,6 +33,9 @@ export class ProductDashboardSignals1 implements OnInit, OnDestroy {
         (!term || p.name.toLowerCase().includes(term))
     );
   });
+
+  // for model clarification
+  selected = model.required<number>();
 
   totalCount = computed(() => this.filteredProducts().length);
 

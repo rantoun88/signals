@@ -22,7 +22,7 @@ export class ProductDashboardSignals2 {
   private productService = inject(ProductService);
 
   // -----> signal input
-  searchTerm = input('');
+  readonly searchTerm = input('');
 
   selectedCategory = signal<string | null>(null);
 

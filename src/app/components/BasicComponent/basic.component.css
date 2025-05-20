@@ -4,7 +4,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-items: center;
   gap: 50px;
 }
 .basic{
@@ -16,5 +15,4 @@
   display: flex;
   gap: 50px;
   justify-content: center;
-  justify-items: center;
 }

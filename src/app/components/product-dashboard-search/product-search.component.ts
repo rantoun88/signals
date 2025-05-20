@@ -4,13 +4,13 @@ import { ProductDashboardComponent } from '../product-dashboard-signals/product-
 import { Router, RouterModule } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatButtonModule } from '@angular/material/button';
-import { NgIf } from '@angular/common';
+import {NgClass} from '@angular/common';
 import { BasicComponent } from '../BasicComponent/basic.component';
 
 @Component({
   selector: 'product-search',
   standalone: true,
-  imports: [ProductDashboardComponent, ProductDashboardComponent, RouterModule, MatTabsModule, MatButtonModule, NgIf, BasicComponent, ProductDashboardRxjsComponent],
+  imports: [ProductDashboardComponent, ProductDashboardComponent, RouterModule, MatTabsModule, MatButtonModule, BasicComponent, ProductDashboardRxjsComponent, NgClass],
   templateUrl: './product-search.component.html',
   styleUrl: 'product-search.component.scss'
 })

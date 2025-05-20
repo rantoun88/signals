@@ -1,13 +1,19 @@
-<div class="search-wrapper" *ngIf="tabIndex !== 0" xmlns="http://www.w3.org/1999/html">
-  <input class="search-input"
-    type="text"
-    [value]="search()"
-    (input)="updateSearchTerm($event)"
-    placeholder="🔍 Search products..."
-  />
+<div [ngClass]="{'head': tabIndex === 0}">
+@if(tabIndex !== 0){
+  <div class="search-wrapper"  xmlns="http://www.w3.org/1999/html">
+    <input class="search-input"
+           type="text"
+           [value]="search()"
+           (input)="updateSearchTerm($event)"
+           placeholder="🔍 Search products..."
+    />
+  </div>
+}
 </div>
 <div class="selected-product">
-  <p *ngIf="tabIndex === 1">selectedProduct: {{ selectedProductId() }}</p>
+  @if(tabIndex === 1) {
+    <p >selectedProduct: {{ selectedProductId() }}</p>
+  }
 </div>
 
 <!-- Material Tabs -->

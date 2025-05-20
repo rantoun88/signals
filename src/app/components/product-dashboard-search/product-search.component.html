@@ -1,0 +1,18 @@
+<div class="search-wrapper" *ngIf="tabIndex !== 0">
+  <input
+    type="text"
+    [value]="search()"
+    (input)="updateSearchTerm($event)"
+    placeholder="🔍 Search products..."
+  />
+  <p *ngIf="tabIndex === 1">selectedProduct: {{ selectedProductId() }}</p>
+</div>
+
+<!-- Material Tabs -->
+<mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
+  <mat-tab label="Basics"><basic-component/></mat-tab>
+  <mat-tab label="signals"><product-dashboard-signals [searchTerm]="search()"
+                                                       [(selected)]="selectedProductId">
+  </product-dashboard-signals></mat-tab>
+  <mat-tab label="rxjs + signals"><product-dashboard-rxjs [searchTerm]="search()"></product-dashboard-rxjs></mat-tab>
+</mat-tab-group>

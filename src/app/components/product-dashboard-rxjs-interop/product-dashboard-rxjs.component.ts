@@ -12,13 +12,13 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { combineLatest } from 'rxjs';
 
 @Component({
-  selector: 'product-dashboard-signals2',
+  selector: 'product-dashboard-rxjs',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './product-dashboard-signals2.html',
-  styleUrl: './product-dashboard-signals2.scss'
+  templateUrl: './product-dashboard-rxjs.component.html',
+  styleUrl: './product-dashboard-rxjs.component.scss'
 })
-export class ProductDashboardSignals2 {
+export class ProductDashboardRxjsComponent {
   private productService = inject(ProductService);
 
   // -----> signal input

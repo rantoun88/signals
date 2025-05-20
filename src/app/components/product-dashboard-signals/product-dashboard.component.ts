@@ -8,13 +8,13 @@ import { Subscription } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-  selector: 'product-dashboard-signals1',
+  selector: 'product-dashboard-signals',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, MatIconModule],
-  templateUrl: './product-dashboard-signals1.html',
-  styleUrl: './product-dashboard-signals1.scss'
+  templateUrl: './product-dashboard.component.html',
+  styleUrl: './product-dashboard.component.scss'
 })
-export class ProductDashboardSignals1 implements OnInit, OnDestroy {
+export class ProductDashboardComponent implements OnInit, OnDestroy {
   private productService = inject(ProductService);
   private loadSubscription = Subscription.EMPTY ;
   private allProducts = signal<Product[]>([]);

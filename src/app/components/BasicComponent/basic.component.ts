@@ -14,7 +14,6 @@ import {SecondChildComponent} from './second-child/second-child.component';
 })
 export class BasicComponent{
    color () : string {
-     console.log('Basic Component rerendered')
      const randomNumber = Math.floor(Math.random() * 20);
      const colors: string[] = [
        '#FF0000',

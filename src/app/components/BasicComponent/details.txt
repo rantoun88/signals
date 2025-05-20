@@ -1,0 +1,11 @@
+1 - create Writable Signals
+2 - change the value of a writable signal using set()
+3 - update the value of a writable signal depends on the previous value using update()
+4 - Computed signals :
+     - are read-only signals that derive their value from other signals+ cannot directly been changed
+     - are lazy evaluated (derivation function does not run to calculate its value until the first time you read the signal)
+     - are memorized (The calculated value is cached so
+       reading the signal again will return the cached value without recalculating)
+     - Computed signal dependencies are dynamic (Only the signals actually read during the derivation are tracked)
+
+

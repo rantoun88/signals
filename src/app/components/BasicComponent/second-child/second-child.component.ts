@@ -7,8 +7,6 @@ import {map} from 'rxjs/operators';
   selector: 'app-basic-second-child',
   imports: [
     DatePipe,
-    AsyncPipe,
-
   ],
   templateUrl: './second-child.component.html',
   styleUrl: './second-child.component.css',
@@ -32,7 +30,7 @@ export class SecondChildComponent implements OnInit{
     })
     }
   color () : string {
-    console.log('Second Component rerendered')
+    //console.log('Second Component rerendered')
     const randomNumber = Math.floor(Math.random() * 20);
     const colors: string[] = [
       '#FF0000',

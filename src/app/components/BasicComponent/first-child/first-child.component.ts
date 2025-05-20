@@ -1,5 +1,10 @@
-import {ChangeDetectionStrategy, Component, computed, effect, signal, WritableSignal} from '@angular/core';
-import {tap} from 'rxjs';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  signal,
+} from '@angular/core';
+import { tap} from 'rxjs';
 import {AsyncPipe} from '@angular/common';
 import {toObservable} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs/operators';
@@ -8,9 +13,6 @@ import {map} from 'rxjs/operators';
 
 @Component({
   selector: 'app-basic-first-child',
-  imports: [
-    AsyncPipe
-  ],
   templateUrl: './first-child.component.html',
   styleUrl: './first-child.component.css',
   changeDetection:ChangeDetectionStrategy.OnPush
@@ -18,30 +20,39 @@ import {map} from 'rxjs/operators';
 export class FirstChildComponent {
   // WritableSignal
   counter = signal<number>( 0)
+  showCount = signal(true);
+  // computed Signal
   //
   doubleCounter = computed(()=> {
-    this.counter();
     console.log('inside computed');
-    return this.counter()*2 ;
+    if(this.showCount()){
+      // if showCount is false then  counter will no longer be considered a dependency of doubleCounter
+      return this.counter()*2;
+    }
+   else {
+     return 0;
+    }
   })
 
   doubleCounter$ = toObservable(this.counter).pipe(map(n=> n*2),tap(()=> console.log('inside observable')));
 
   protected increment(): void {
+    //update() operation to compute a new value from the previous one
     this.counter.update((oldValue)=> oldValue+1);
   }
 
   protected reset(): void {
+    //To change the value of a writable signal
     // this.counter.set(400);
     // this.counter.set(100);
     // this.counter.set(800);
     // this.counter.set(900);
     // this.counter.set(1500);
+    this.showCount.update(show=> !show);
     this.counter.set(0);
   }
 
   color () : string {
-    //console.log('First Component rerendered')
     const randomNumber = Math.floor(Math.random() * 20);
     const colors: string[] = [
       '#FF0000',
@@ -66,6 +77,10 @@ export class FirstChildComponent {
       '#FFD700'
     ];
     return colors[randomNumber % 20];
+  }
+
+  toggleShowCount() {
+    this.showCount.update(show=> !show);
   }
 
 }

@@ -35,7 +35,7 @@ export class ProductDashboardRxjsComponent {
   // Combine (searchTerm + selectedCategory) then filter
   private filteredProducts$ = combineLatest([this.searchTerm$, this.selectedCategory$]).pipe(
     switchMap(([term, category]) =>
-      this.productService.search(term || '').pipe(   // here we start initially with all products
+      this.productService.search(term).pipe(
         map(products =>
           category ? products.filter(p => p.category === category) : products
         )

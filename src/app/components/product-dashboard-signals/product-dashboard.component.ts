@@ -26,7 +26,7 @@ export class ProductDashboardComponent implements OnInit, OnDestroy {
 
   filteredProducts = computed(() => {
     const category = this.selectedCategory();
-    const term = this.searchTerm().toLowerCase() || '';
+    const term = this.searchTerm().toLowerCase();
     return this.allProducts().filter(
       (p) =>
         (!category || p.category === category) &&

@@ -21,8 +21,14 @@ export class ProductSearchComponent {
   selectedProductId = signal(5);
   // as signal if I want a side effect when selectedProductId is changed (like defining computed signal or effect)
 
-
   constructor(private router: Router) {}
+
+  updateSearchTerm(event: Event) {
+    const searchValue = (event.target as HTMLInputElement).value
+    this.search.set(searchValue);
+  }
+
+
 
   onTabChange(index: number) {
     this.tabIndex = index;
@@ -30,8 +36,4 @@ export class ProductSearchComponent {
     this.router.navigate([paths[index]]);
   }
 
-  updateSearchTerm(event: Event) {
-    const searchValue = (event.target as HTMLInputElement).value
-    this.search.set(searchValue);
-  }
 }

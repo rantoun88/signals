@@ -1,10 +1,12 @@
-<div class="search-wrapper" *ngIf="tabIndex !== 0">
-  <input
+<div class="search-wrapper" *ngIf="tabIndex !== 0" xmlns="http://www.w3.org/1999/html">
+  <input class="search-input"
     type="text"
     [value]="search()"
     (input)="updateSearchTerm($event)"
     placeholder="🔍 Search products..."
   />
+</div>
+<div class="selected-product">
   <p *ngIf="tabIndex === 1">selectedProduct: {{ selectedProductId() }}</p>
 </div>
 

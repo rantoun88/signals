@@ -52,6 +52,7 @@ export class ProductDashboardRxjsComponent {
     effect(() => {
       this.snackBar.open(`Found ${this.productCount()} product`, 'Close', {
         duration: 4000,
+        panelClass: ['custom-snackbar']
       });
     });
   }

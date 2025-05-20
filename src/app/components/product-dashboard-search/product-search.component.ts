@@ -12,6 +12,7 @@ import { BasicComponent } from '../BasicComponent/basic.component';
   standalone: true,
   imports: [ProductDashboardComponent, ProductDashboardComponent, RouterModule, MatTabsModule, MatButtonModule, NgIf, BasicComponent, ProductDashboardRxjsComponent],
   templateUrl: './product-search.component.html',
+  styleUrl: 'product-search.component.scss'
 })
 export class ProductSearchComponent {
   tabIndex = 0;

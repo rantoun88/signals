@@ -43,6 +43,7 @@ export class ProductDashboardComponent implements OnInit, OnDestroy {
     effect(() => {
       this.snackBar.open(`Found ${this.totalCount()} product`, 'Close', {
         duration: 4000,
+        panelClass: ['custom-snackbar']
       });
     });
   }

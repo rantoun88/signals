@@ -1,20 +1,13 @@
 h2 {
+  display: flex;
+  justify-content: center;
   color: #b30000;
   margin-bottom: 16px;
 }
 
-input[type="text"] {
-  padding: 8px;
-  width: 250px;
-  border: 2px solid #b30000;
-  border-radius: 4px;
-  margin-bottom: 12px;
-  font-size: 16px;
-}
-
 button {
   padding: 6px 12px;
-  margin: 0 4px 12px 0;
+  margin: 0 20px 12px 0;
   border: 1px solid #b30000;
   border-radius: 4px;
   background-color: white;
@@ -44,7 +37,40 @@ ul {
 }
 
 li {
-  padding: 8px;
-  border-bottom: 1px solid #ccc;
-  font-size: 16px;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+}
+
+.category-filter {
+  display: flex;
+  justify-content: center;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+p {
+  display: flex;
+  justify-content: center;
+}
+
+.product-info {
+  margin-top: 70px;
+}
+
+
+::ng-deep .custom-snackbar .mat-simple-snackbar-action button {
+  color: red !important; /* Default text color */
+  background: white !important; /* Ensure no background by default */
+  transition: color 0.1s ease;
+}
+
+::ng-deep .custom-snackbar .mat-simple-snackbar-action button:hover {
+  color: blue !important; /* New text color on hover */
+  background-color: white !important; /* Prevent background color on hover */
 }

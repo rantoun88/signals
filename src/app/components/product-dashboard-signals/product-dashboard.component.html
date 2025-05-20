@@ -11,16 +11,12 @@
 <!-- Product List -->
 <ul class="product-list">
   <li *ngFor="let product of filteredProducts()" class="product-item" [ngClass]="{'highlight-violet': selected() === product.id}">
-
-
     {{ product.name }} <span class="category-label">({{ product.category }})</span>
     <mat-icon (click)="selected.set(product.id)">shopping_cart</mat-icon>
   </li>
 </ul>
 
-<div>
+<div class="product-info">
   <p>total count is {{ totalCount() }}</p>
-</div>
-<div>
   <p>Selected category is {{ selectedCategory() || 'ALL' }}</p>
 </div>

@@ -49,12 +49,12 @@ export class ProductDashboardRxjsComponent {
   // Count (computed from filtered signal)
   productCount = computed(() => this.filteredProducts().length);
   constructor(private snackBar: MatSnackBar) {
-    effect(() => {
-      this.snackBar.open(`Found ${this.productCount()} product`, 'Close', {
-        duration: 4000,
-        panelClass: ['custom-snackbar']
-      });
-    });
+    // effect(() => {
+    //   this.snackBar.open(`Found ${this.productCount()} product`, 'Close', {
+    //     duration: 4000,
+    //     panelClass: ['custom-snackbar']
+    //   });
+    // });
   }
 
   selectCategory(category: string | null) {

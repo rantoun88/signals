@@ -12,13 +12,13 @@ import { BasicComponent } from '../BasicComponent/basic.component';
   standalone: true,
   imports: [ProductDashboardComponent, ProductDashboardComponent, RouterModule, MatTabsModule, MatButtonModule, BasicComponent, ProductDashboardRxjsComponent, NgClass],
   templateUrl: './product-search.component.html',
-  styleUrl: 'product-search.component.scss'
+  styleUrl: './product-search.component.scss'
 })
 export class ProductSearchComponent {
   tabIndex = 0;
   search = signal('');
 
-  selectedProductId = signal(5);
+  selectedProductId = signal(5555);
   // as signal if I want a side effect when selectedProductId is changed (like defining computed signal or effect)
 
   constructor(private router: Router) {}

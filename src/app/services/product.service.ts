@@ -6,11 +6,12 @@ import { Product } from '../models/product.model';
 @Injectable({ providedIn: 'root' })
 export class ProductService {
   private products: Product[] = [
-    { id: 1, name: 'MacBook Pro', category: 'Laptops' },
-    { id: 2, name: 'iPad', category: 'Tablets' },
-    { id: 3, name: 'Galaxy Tab', category: 'Tablets' },
-    { id: 4, name: 'Dell XPS', category: 'Laptops' },
-    { id: 5, name: 'iPhone', category: 'Phones' },
+    { id: 1111, name: 'MacBook Pro', category: 'Laptops' },
+    { id: 2222, name: 'iPad', category: 'Tablets' },
+    { id: 3333, name: 'Galaxy Tab', category: 'Tablets' },
+    { id: 4444, name: 'Samsung Tab', category: 'Tablets' },
+    { id: 5555, name: 'Dell XPS', category: 'Laptops' },
+    { id: 6666, name: 'iPhone', category: 'Phones' },
   ];
 
   getAll(): Observable<Product[]> {

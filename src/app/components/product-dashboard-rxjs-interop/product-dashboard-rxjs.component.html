@@ -9,13 +9,15 @@
 </div>
 
 <ul class="product-list">
-  <li *ngFor="let p of filteredProducts()">
-    {{ p.name }} ({{ p.category }})
-  </li>
+  @for (p of filteredProducts(); track p) {
+    <li>
+      {{ p.name }} ({{ p.category }})
+    </li>
+  }
 </ul>
 
 <div class="product-info">
   <p>Total Count: {{ productCount() }}</p>
-  <p>Selected Category: {{ selectedCategory() }}</p>
+  <p>Selected Category: {{ selectedCategory() || 'All' }}</p>
 </div>
 

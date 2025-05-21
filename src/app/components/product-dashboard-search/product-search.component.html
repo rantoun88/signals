@@ -12,11 +12,11 @@
 </div>
 <div class="selected-product">
   @if(tabIndex === 1) {
-    <p >selectedProduct: {{ selectedProductId() }}</p>
+    <p >selectedProduct <b>ID</b>: {{ selectedProductId() }}</p>
   }
 </div>
 
-<!-- Material Tabs -->
+
 <mat-tab-group [(selectedIndex)]="tabIndex" (selectedIndexChange)="onTabChange($event)">
   <mat-tab label="Basics"><basic-component/></mat-tab>
   <mat-tab label="signals"><product-dashboard-signals [searchTerm]="search()"

@@ -28,6 +28,12 @@ export class ProductSearchComponent {
     this.search.set(searchValue);
   }
 
+  updateSelectedId(event: Event) {
+    const searchValue = + (event.target as HTMLInputElement).value
+    this.selectedProductId.set(searchValue);
+  }
+
+
 
 
   onTabChange(index: number) {

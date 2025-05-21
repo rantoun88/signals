@@ -52,7 +52,7 @@ export class ProductDashboardComponent implements OnInit, OnDestroy {
     this.loadSubscription = this.productService.getAll().subscribe(this.allProducts.set);
   }
 
-  // selectCategory with null value displays all the products
+  // selectCategory with null value displays all the products or 'ALL' Category
   selectCategory(category: string | null) {
     this.selectedCategory.set(category);
   }

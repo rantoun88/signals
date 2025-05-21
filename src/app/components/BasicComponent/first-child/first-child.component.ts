@@ -5,7 +5,6 @@ import {
   signal,
 } from '@angular/core';
 import { tap} from 'rxjs';
-import {AsyncPipe} from '@angular/common';
 import {toObservable} from '@angular/core/rxjs-interop';
 import {map} from 'rxjs/operators';
 
@@ -15,24 +14,34 @@ import {map} from 'rxjs/operators';
   selector: 'app-basic-first-child',
   templateUrl: './first-child.component.html',
   styleUrl: './first-child.component.css',
-  changeDetection:ChangeDetectionStrategy.OnPush
+  imports: [],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FirstChildComponent {
   // WritableSignal
   counter = signal<number>( 0)
   showCount = signal(true);
+
   // computed Signal
-  //
   doubleCounter = computed(()=> {
     console.log('inside computed');
-    if(this.showCount()){
-      // if showCount is false then  counter will no longer be considered a dependency of doubleCounter
-      return this.counter()*2;
-    }
-   else {
-     return 0;
-    }
-  })
+    return  this.counter() * 2
+  });
+
+
+  // lazy + memorized + dynamic
+  // doubleCounter = computed(()=> {
+  //   console.log('inside computed');
+  //   const star=this.showCount()?  '*': '';
+  //   return star +this.counter()*2 + star ;
+    // if(this.showCount()){
+    //   // if showCount is false then  counter will no longer be considered a dependency of doubleCounter
+    //   return this.counter()*2;
+    // }
+    // else {
+    //   return 0;
+    // }
+  //})
 
   doubleCounter$ = toObservable(this.counter).pipe(map(n=> n*2),tap(()=> console.log('inside observable')));
 

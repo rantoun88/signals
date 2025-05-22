@@ -32,8 +32,8 @@ export class FirstChildComponent {
   // lazy + memorized + dynamic
   // doubleCounter = computed(()=> {
   //   console.log('inside computed');
-  //   const star=this.showCount()?  '*': '';
-  //   return star +this.counter()*2 + star ;
+  //   const star = this.showCount()?  '*': '';
+  //   return star + this.counter()*2 + star ;
     // if(this.showCount()){
     //   // if showCount is false then  counter will no longer be considered a dependency of doubleCounter
     //   return this.counter()*2;
@@ -43,7 +43,9 @@ export class FirstChildComponent {
     // }
   //})
 
-  doubleCounter$ = toObservable(this.counter).pipe(map(n=> n*2),tap(()=> console.log('inside observable')));
+  doubleCounter$ = toObservable(this.counter)
+    .pipe(map(n=> n*2),
+      tap(()=> console.log('inside observable')));
 
   protected increment(): void {
     //update() operation to compute a new value from the previous one
@@ -51,13 +53,6 @@ export class FirstChildComponent {
   }
 
   protected reset(): void {
-    //To change the value of a writable signal
-    // this.counter.set(400);
-    // this.counter.set(100);
-    // this.counter.set(800);
-    // this.counter.set(900);
-    // this.counter.set(1500);
-    this.showCount.update(show=> !show);
     this.counter.set(0);
   }
 
